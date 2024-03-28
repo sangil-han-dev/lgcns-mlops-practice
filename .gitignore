@@ -167,3 +167,9 @@ mlruns/
 
 # custom
 .custom/
+
+# Artifact
+artifacts/
+
+# Data
+data/storage/

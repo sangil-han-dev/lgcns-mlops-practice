@@ -56,17 +56,13 @@ def floor_extractor(df: pd.DataFrame, col: str) -> pd.DataFrame:
 # 3. 범주형 변수(CAT_FEATURES)는 타겟 인코딩 적용 (from category_encoders import TargetEncoder)
 preprocess_pipeline = ColumnTransformer(
     transformers=[
-        (
-            "sqrt_transformer",
-            FunctionTransformer(np.sqrt, kw_args={"col": "size"}),
-            ["size"],
-        ),
+        ("sqrt_transformation", FunctionTransformer(np.sqrt), ["size"]),
         (
             "floor_extractor",
             FunctionTransformer(floor_extractor, kw_args={"col": "floor"}),
             ["floor"],
         ),
-        ("target_encoder", TargetEncoder(cols=CAT_FEATURES), CAT_FEATURES),
+        ("target_encoding", TargetEncoder(cols=CAT_FEATURES), CAT_FEATURES),
     ],
     remainder="passthrough",
     verbose_feature_names_out=False,
