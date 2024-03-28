@@ -26,7 +26,7 @@ model_runner = bento_model.to_runner()
 
 
 @svc.api(
-    #TODO: Features 클래스를 JSON으로 받아오고 Numpy NDArray를 반환하도록 데코레이터 작성
+    # TODO: Features 클래스를 JSON으로 받아오고 Numpy NDArray를 반환하도록 데코레이터 작성
 )
 async def predict(input_data: Features) -> npt.NDArray:
     input_df = pd.DataFrame([input_data.dict()])

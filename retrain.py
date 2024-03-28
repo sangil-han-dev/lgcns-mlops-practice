@@ -10,10 +10,7 @@ import numpy as np
 import pandas as pd
 
 from src.common.constants import ARTIFACT_PATH, DATA_PATH, LOG_FILEPATH
-from src.common.logger import (
-    handle_exception,
-    set_logger,
-)
+from src.common.logger import handle_exception, set_logger
 from src.common.metrics import rmse_cv_score
 from src.common.utils import get_param_set
 from src.preprocess import preprocess_pipeline
@@ -52,7 +49,7 @@ if __name__ == "__main__":
 
     logger.info("Save the model...")
     joblib.dump(model, os.path.join(ARTIFACT_PATH, "model.pkl"))
-    
+
     bentoml.sklearn.save_model(
         name="house_rent",
         model=model,

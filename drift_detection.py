@@ -114,14 +114,14 @@ def model_drift_detection(
     # TODO: Model Drift 결과를 얻기 위해 suite 실행
 
     log_failed_check_info(suite_result=suite_result)
-    
+
     # Prediction Drift 정보만 저장
     if save_as_json:
         prediction_drift = get_drift_test(
             suite_result=suite_result, test_name="Prediction Drift"
         )
         json_obj = json.dumps(prediction_drift, indent=4)
-        
+
         with open("./prediction_drift.json", "w") as file:
             file.write(json_obj)
 
